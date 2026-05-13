@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:component.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        x:Class="component.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="component"
+        Width="400"
+        Height="450">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <StackPanel>
+        <Grid ShowGridLines="True" RowDefinitions="Auto Auto Auto" ColumnDefinitions="Auto 120 Auto" ColumnSpacing="10"
+              HorizontalAlignment="Center" Margin="0 20 0 0">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Margin="2 0 0 2">
+            </TextBlock>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="NameBox"></TextBox>
+            <Button Grid.Row="0" Grid.Column="2" Content="Ok" Click="OnClickName"></Button>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Age" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Margin="2 0 0 2">
+            </TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="AgeBox"></TextBox>
+            <Button Grid.Row="1" Grid.Column="2" Content="Ok"></Button>
+        </Grid>
+        <TextBox Margin="20 10 20 0" TextChanged="DebugLog_OnTextChangedLog" Name="InputTxt"></TextBox>
+        <TextBox Margin="20 10 20 0" Name="OutputTxt" IsReadOnly="True"></TextBox>
+    </StackPanel>
+
+</Window>
