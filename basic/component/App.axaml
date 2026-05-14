@@ -3,13 +3,23 @@
              x:Class="component.App"
              xmlns:local="using:component"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
-  
+
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+    <Application.Resources>
+        <LinearGradientBrush x:Key="OrangeGradient" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FF5F6D" />
+            <GradientStop Offset="1" Color="#FFC371" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SkyGradient" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#C2FFD8" />
+            <GradientStop Offset="1" Color="#465EFB" />
+        </LinearGradientBrush>
+    </Application.Resources>
 </Application>

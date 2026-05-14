@@ -1,0 +1,79 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:component.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="200"
+        x:Class="component.Views.LoginPage"
+        x:DataType="vm:LoginPageViewModel"
+        Width="400"
+        Height="200"
+        Title="Login">
+    <Window.Styles>
+        <Style Selector="Button.no-bg-interaction">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+
+            <Style Selector="^:focused /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+        </Style>
+    </Window.Styles>
+    <Grid RowDefinitions="50 *" RowSpacing="10">
+        <Border Grid.Row="0" Background="WhiteSmoke">
+            <Grid VerticalAlignment="Center">
+                <Border HorizontalAlignment="Left" Margin="10 0 0 0 " Background="{StaticResource SkyGradient}"
+                        CornerRadius="6">
+                    <Button Classes="no-bg-interaction"
+                            Content="返回"
+                            Foreground="White"
+                            Command="{Binding GoToHomePage}"
+                            FontWeight="Bold">
+                    </Button>
+                </Border>
+                <TextBlock Text="登录" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"></TextBlock>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Background="White">
+            <StackPanel HorizontalAlignment="Center" Spacing="10" Width="300">
+                <TextBox PlaceholderText="账号" Text="{Binding Account,UpdateSourceTrigger=LostFocus}">
+                    <TextBox.InnerLeftContent>
+                        <Image Width="24"
+                               Height="24"
+                               Source="/Assets/acc.png" />
+                    </TextBox.InnerLeftContent>
+                </TextBox>
+                <TextBox PlaceholderText="密码" PasswordChar="*" VerticalContentAlignment="Center"
+                         Text="{Binding Password,UpdateSourceTrigger=LostFocus}">
+                    <TextBox.InnerLeftContent>
+                        <Image Width="24"
+                               Height="24"
+                               Source="/Assets/pass.png" />
+                    </TextBox.InnerLeftContent>
+                </TextBox>
+                <Border Background="{StaticResource OrangeGradient}"
+                        CornerRadius="6"
+                        Padding="0">
+
+                    <Button Content="登录"
+                            Classes="no-bg-interaction"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Command="{Binding OnClickLogin}" />
+                </Border>
+                <TextBlock Text="{Binding StatusMessage}" Foreground="Gray" FontSize="12" HorizontalAlignment="Center"
+                           VerticalAlignment="Bottom" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
